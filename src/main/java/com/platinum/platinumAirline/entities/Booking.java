@@ -7,6 +7,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Data
@@ -19,26 +21,25 @@ public class Booking {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(unique = true, nullable = false)
+    private String bookingReference;
+
     @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
     private User user;
+
+    @ManyToOne
+    private Flight  flight;
 
     @Enumerated(EnumType.STRING)
     private BookingStatus status;
 
-    @Column(updatable = false)
-    private LocalDateTime createdAt;
 
-    private LocalDateTime updatedAt;
+    private LocalDateTime bookingDate;
 
-    @PrePersist
-    protected void onCreate() {
-        createdAt = LocalDateTime.now();
-        updatedAt = LocalDateTime.now();
-    }
+    @OneToMany(mappedBy = "booking", cascade = CascadeType.ALL)
+    private List<Passengers> passengers = new ArrayList<>();
 
-    @PreUpdate
-    protected void onUpdate() {
-        updatedAt = LocalDateTime.now();
-    }
+
+
+
 }
