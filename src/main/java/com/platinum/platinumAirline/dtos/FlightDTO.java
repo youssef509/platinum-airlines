@@ -1,6 +1,8 @@
 package com.platinum.platinumAirline.dtos;
 
 
+import com.platinum.platinumAirline.entities.Booking;
+import com.platinum.platinumAirline.entities.User;
 import com.platinum.platinumAirline.enums.FlightStatus;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -37,10 +39,10 @@ public class FlightDTO {
     private BigDecimal basePrice;
 
 
-    private UserDTO assignedPilot;
+    private User assignedPilot;
 
 
-    private List<BookingDTO> bookings = new ArrayList<>();
+    private List<Booking> bookings = new ArrayList<>();
 
     private String departureairportIatacode;
     private String arrivalairportIatacode;

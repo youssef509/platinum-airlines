@@ -1,10 +1,7 @@
 package com.platinum.platinumAirline.dtos;
 
 
-import com.platinum.platinumAirline.entities.Flight;
-import com.platinum.platinumAirline.entities.User;
 import com.platinum.platinumAirline.enums.BookingStatus;
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -29,6 +26,6 @@ public class BookingDto {
 
     private LocalDateTime bookingDate;
 
-    private List<PassengersDTO> passengers;
+    private List<PassengerDTO> passengers;
 
 }

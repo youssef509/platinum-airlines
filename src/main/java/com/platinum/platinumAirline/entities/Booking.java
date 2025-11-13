@@ -37,7 +37,7 @@ public class Booking {
     private LocalDateTime bookingDate;
 
     @OneToMany(mappedBy = "booking", cascade = CascadeType.ALL)
-    private List<Passengers> passengers = new ArrayList<>();
+    private List<Passenger> passengers = new ArrayList<>();
 
 
 
